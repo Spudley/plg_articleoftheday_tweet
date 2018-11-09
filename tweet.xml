@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.8" type="plugin" group="articleoftheday" method="upgrade">
+	<name>PLG_ARTICLEOFTHEDAY_TWEET_NAME</name>
+	<version>1.0.0</version>
+	<creationDate>November 2018</creationDate>
+	<author>Simon Champion</author>
+	<authorEmail>simon@simonchampion.net</authorEmail>
+	<authorUrl></authorUrl>
+	<copyright>(C) 2018 Simon Champion</copyright>
+	<license>GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html</license>
+	<description>PLG_ARTICLEOFTHEDAY_TWEET_DESCRIPTION</description>
+
+	<files>
+		<filename>index.html</filename>
+		<filename plugin="tweet">tweet.php</filename>
+		<folder>twitteroauth</folder>
+	</files>
+
+	<languages>
+		<language tag="en-GB">language/en-GB/en-GB.plg_articleoftheday_tweet.sys.ini</language>
+	</languages>
+
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+                <field name="tweet_template" type="textarea" default="{content}&lt;br&gt;{tags}&lt;br&gt;{url}" label="PLG_ARTICLEOFTHEDAY_TWEET_TEMPLATE_LABEL" description="PLG_ARTICLEOFTHEDAY_TWEET_TEMPLATE_DESC"/>
+				<field
+					name="content_from"
+					type="radio"
+					label="PLG_ARTICLEOFTHEDAY_TWEET_CONTENT_FROM_LABEL"
+					description="PLG_ARTICLEOFTHEDAY_TWEET_CONTENT_FROM_DESC"
+					default="none"
+					>
+					<option value="none">PLG_ARTICLEOFTHEDAY_TWEET_CONTENT_FROM_OPTION_NONE</option>
+					<option value="title">PLG_ARTICLEOFTHEDAY_TWEET_CONTENT_FROM_OPTION_TITLE</option>
+					<option value="body">PLG_ARTICLEOFTHEDAY_TWEET_CONTENT_FROM_OPTION_BODY</option>
+					<option value="field">PLG_ARTICLEOFTHEDAY_TWEET_CONTENT_FROM_OPTION_FIELD</option>
+				</field>
+                <field name="content_field" type="text" default="" showon="content_from:field" label="PLG_ARTICLEOFTHEDAY_TWEET_CONTENT_FIELD_LABEL" description="PLG_ARTICLEOFTHEDAY_TWEET_CONTENT_FIELD_DESC"/>
+                <field name="hashtag_roulette" type="text" default="" label="PLG_ARTICLEOFTHEDAY_TWEET_HASHTAG_ROULETTE_LABEL" description="PLG_ARTICLEOFTHEDAY_TWEET_HASHTAG_ROULETTE_DESC"/>
+                <field name="hashtag_max" type="text" default="1" filter="integer" label="PLG_ARTICLEOFTHEDAY_TWEET_HASHTAG_MAX_LABEL" description="PLG_ARTICLEOFTHEDAY_TWEET_HASHTAG_MAX_DESC"/>
+			</fieldset>
+			<fieldset name="twitter_auth" label="PLG_ARTICLEOFTHEDAY_TWEET_TWITTER_AUTH" description="">
+                <field name="consumer_key" type="text" default="" label="PLG_ARTICLEOFTHEDAY_TWEET_CONSUMER_KEY_LABEL" description="PLG_ARTICLEOFTHEDAY_TWEET_CONSUMER_KEY_DESC"/>
+                <field name="consumer_secret" type="text" default="" label="PLG_ARTICLEOFTHEDAY_TWEET_CONSUMER_SECRET_LABEL" description="PLG_ARTICLEOFTHEDAY_TWEET_CONSUMER_SECRET_DESC"/>
+                <field name="access_token" type="text" default="" label="PLG_ARTICLEOFTHEDAY_TWEET_ACCESS_TOKEN_LABEL" description="PLG_ARTICLEOFTHEDAY_TWEET_ACCESS_TOKEN_DESC"/>
+                <field name="access_secret" type="text" default="" label="PLG_ARTICLEOFTHEDAY_TWEET_ACCESS_SECRET_LABEL" description="PLG_ARTICLEOFTHEDAY_TWEET_ACCESS_SECRET_DESC"/>
+			</fieldset>
+		</fields>
+	</config>
+</extension>
