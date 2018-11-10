@@ -71,7 +71,9 @@ class plgArticleofthedayTweet extends JPlugin
     private function getURL($articleID)
     {
         $article = $this->loadArticle($articleID);
-        return JURI::root().JRoute::_(ContentHelperRoute::getArticleRoute($articleID, $article->catid));
+        $root = parse_url(JURI::root());
+        $domain = $root['scheme'].'://'.$root['host'];
+        return $domain.JRoute::_(ContentHelperRoute::getArticleRoute($articleID, $article->catid));
     }
 
     private function cleanContent($content)
