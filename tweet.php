@@ -76,7 +76,8 @@ class plgArticleofthedayTweet extends JPlugin
 
     private function cleanContent($content)
     {
-        $content = preg_replace('~(<br ?/?>|\s)+~', "\n", $content);
+        $content = preg_replace('~\s+~', " ", $content);
+        $content = preg_replace('~<br ?/?>+~', "\n", $content);
         $output = strip_tags($content);
         return $output;
     }

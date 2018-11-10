@@ -54,7 +54,7 @@ The first tab in the config page is to control the behaviour of the plugin, main
 
     Note that for all of these options, the content may end up being truncated due to Twitter's constrained tweet length. Obviously, the full article body is more likely to be truncated than the title, but it will truncate any of them as necessary.
 
-    Content will have HTML tags stripped. `<br>` tags and multiple line feeds will be converted to a single line feed.
+    Content will have HTML tags and excess white space stripped. `<br>` tags will be converted to a single line feed.
 
 * Hashtags and Max Hashtags
 
@@ -72,15 +72,20 @@ Having written the Article Of The Day module, I wanted to use the selected artic
 Todo List and Known Issues
 --------------------------
 
-* It's possible that users may want more flexibility in formatting the tweets; eg to include the title and the body content, or to include data from more than one field, etc. The constrained length of a tweet makes this flexibility less useful than it sounds, but if anyone does want this, please feel free to ask or to submit a PR with suitable changes.
+* It's possible that users of this plugin may want more flexibility in formatting the tweets; eg to include the title and the body content, or to include data from more than one field, etc. The constrained length of a tweet makes this flexibility less useful than it sounds, but if anyone does want this, please feel free to ask or to submit a PR with suitable changes.
 
 * Hashtags could be loaded from the article's Joomla tags, to allow them to be more specific to the content.
 
 * Similar plugins could be written for other social media APIs such as Facebook. I'm open to suggestions, and also happy if anyone wants to write one for themselves (instructions for writing a plugin for Article Of The Day module can be found in the module's documentation).
 
+* It would be preferable to use Composer to pull in the TwitterOAuth library rather than bundling it. However Joomla doesn't make that easy right now.
+
+* If the tweet fails to send, the end user whose visit triggered the article of the day to be updated will get an error page instead of the normal site front page.
+
 
 License
 ----------------
-As with all Joomla extensions and Joomla itself, this plugin is licensed under the GPLv2. The full license document should have been included with the source code.
+As with all Joomla extensions and Joomla itself, this plugin is licensed under the GPL, specifically in this case, GPLv2. The full license document should have been included with the source code.
 
-The plugin uses and includes a third party PHP library called TwitterOAuth, which is licensed under MIT license.
+The plugin uses and includes a third party PHP library called [TwitterOAuth](https://github.com/abraham/twitteroauth), which is licensed under MIT license.
+
